@@ -4,42 +4,87 @@
              x:Class="Lands.Views.LoginPage"
              Title="Login.">
     <ContentPage.Content>
-        <StackLayout Padding="5">               
-            <Label Text="Lands"
+        <ScrollView>
+            <StackLayout Padding="5">
+                <Label Text="Lands"
                    FontSize="Large"
                    FontAttributes="Bold"
                    HorizontalOptions="Center"
                    VerticalOptions="Center" 
                  />
-            <Image
-                HeightRequest="200"
-                WidthRequest="200"
+                <Image
+                HeightRequest="150"                  
                 Source="onu.png">
-            </Image>
-            <Label
-                Text="E-Mail">                
-            </Label>
-            <Entry 
+                </Image>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label  
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="E-Mail"
+                    VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                     Grid.Row="0"
+                    Grid.Column="1"
                 Keyboard="Email"
-                Placeholder="Enter your E-Mail....."
-                >                
-            </Entry>
-            <Label 
-                Text="Password">                
-            </Label>
-            <Entry
+                Placeholder="Enter your E-Mail.....">
+                    </Entry>
+
+                    <Label 
+                    Grid.Row="1"
+                    Grid.Column="0"
+                     Text="Password"
+                    VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        
+                    Grid.Row="1"
+                    Grid.Column="1"
                 IsEnabled="True"
-                Placeholder="Enter your Password.....">                  
-            </Entry>
-            <ActivityIndicator>
-                
-            </ActivityIndicator>
-            <Button
+                Placeholder="Enter your Password.....">
+                    </Entry>
+
+                </Grid>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Rememberme in this Device."
+                       VerticalOptions="Center"
+                       HorizontalOptions="StartAndExpand"></Label>
+                    <Switch HorizontalOptions="End"></Switch>
+                </StackLayout>
+
+                <ActivityIndicator>
+
+                </ActivityIndicator>
+                <StackLayout  Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Button  
                 BackgroundColor="Navy"
                 BorderRadius="23"
+                HeightRequest="46"
                 Text="Login."
-                TextColor="White">                
-            </Button>
-        </StackLayout>
+                TextColor="White">
+                    </Button>
+                    <Button 
+                BackgroundColor="Purple"
+                BorderRadius="23"
+                 HeightRequest="46"
+                 Text="Register."
+                TextColor="White">
+                    </Button>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Image Source="facebook_logo" WidthRequest="90"></Image>
+                    <Image Source="twitter_logo" WidthRequest="80"></Image>
+                    <Image Source="instagram_logo" WidthRequest="65"></Image>
+                </StackLayout>
+
+            </StackLayout>
+
+        </ScrollView>
+        
     </ContentPage.Content>
 </ContentPage>
