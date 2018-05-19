@@ -5,7 +5,7 @@
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Lands - Login.">
     <ContentPage.Content>
-        <ScrollView>
+        <ScrollView  BindingContext="{Binding Login}">
             <StackLayout Padding="10">
                 <!--<Label Text="Lands"
                    FontSize="Large"
@@ -33,6 +33,7 @@
                      Grid.Row="0"
                     Grid.Column="1"
                 Keyboard="Email"
+                        Text="{Binding Email, Mode=TwoWay}"
                 Placeholder="Enter your E-Mail.....">
                     </Entry>
 
@@ -47,17 +48,19 @@
                     Grid.Row="1"
                     Grid.Column="1"
                 IsEnabled="True"
+                        Text="{Binding Password, Mode=TwoWay}"
                 Placeholder="Enter your Password.....">
                     </Entry> 
                 </Grid>
-                <ActivityIndicator VerticalOptions="CenterAndExpand">
-
+                <ActivityIndicator 
+                    VerticalOptions="CenterAndExpand"
+                    IsRunning="{Binding IsRunning, Mode=TwoWay}">
                 </ActivityIndicator>
                 <StackLayout VerticalOptions="CenterAndExpand" Orientation="Horizontal">
                     <Label Text="Rememberme on this Device."
                        VerticalOptions="Center"
                        HorizontalOptions="StartAndExpand"></Label>
-                    <Switch HorizontalOptions="End"></Switch>
+                    <Switch HorizontalOptions="End" IsToggled="{Binding IsRemembered, Mode=TwoWay}"></Switch>
                 </StackLayout>
                 <Label  TextColor="Blue" Text="Forgot your Password?" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"></Label>              
                 <StackLayout  VerticalOptions="CenterAndExpand" Orientation="Horizontal">
@@ -65,6 +68,7 @@
                   HorizontalOptions="FillAndExpand"  
                 BackgroundColor="Navy"
                 BorderRadius="23"
+                        Command="{Binding LoginCommand}"
                 HeightRequest="46"                         
                 Text="Login."
                 TextColor="White">
