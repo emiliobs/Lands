@@ -17,7 +17,7 @@
                 HeightRequest="180"                  
                 Source="onu.png">
                 </Image>
-                <Grid>
+                <Grid VerticalOptions="CenterAndExpand">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -50,22 +50,22 @@
                 Placeholder="Enter your Password.....">
                     </Entry> 
                 </Grid>
-                <ActivityIndicator>
+                <ActivityIndicator VerticalOptions="CenterAndExpand">
 
                 </ActivityIndicator>
-                <StackLayout Orientation="Horizontal">
+                <StackLayout VerticalOptions="CenterAndExpand" Orientation="Horizontal">
                     <Label Text="Rememberme on this Device."
                        VerticalOptions="Center"
                        HorizontalOptions="StartAndExpand"></Label>
                     <Switch HorizontalOptions="End"></Switch>
                 </StackLayout>
-                <Label  HorizontalOptions="Center" TextColor="Blue" Text="Forgot your Password?"></Label>              
-                <StackLayout  Orientation="Horizontal">
-                    <Button  
+                <Label  TextColor="Blue" Text="Forgot your Password?" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"></Label>              
+                <StackLayout  VerticalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <Button 
+                  HorizontalOptions="FillAndExpand"  
                 BackgroundColor="Navy"
                 BorderRadius="23"
-                HeightRequest="46"
-                        HorizontalOptions="FillAndExpand"
+                HeightRequest="46"                         
                 Text="Login."
                 TextColor="White">
                     </Button>
@@ -78,7 +78,7 @@
                 TextColor="White">
                     </Button>
                 </StackLayout>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="EndAndExpand">
                     <Image Source="facebook_logo" WidthRequest="90"></Image>
                     <Image Source="twitter_logo" WidthRequest="80"></Image>
                     <Image Source="instagram_logo" WidthRequest="65"></Image>
