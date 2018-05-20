@@ -1,5 +1,6 @@
 ﻿namespace Lands.ViewModels
 {
+    using GalaSoft.MvvmLight.Command;
     using System;
     using System.Collections.Generic;
     using System.Text;
@@ -26,7 +27,20 @@
         #endregion
 
         #region Commands
-        public ICommand LoginCommand { get; set; }
+        public ICommand LoginCommand
+        {
+            get => new RelayCommand(Login);
+        }
+
+        #endregion
+
+        #region Methods
+
+        private void Login()
+        {
+            
+        }
+
         #endregion
 
 
