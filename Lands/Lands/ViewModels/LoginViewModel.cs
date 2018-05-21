@@ -1,6 +1,7 @@
 ﻿namespace Lands.ViewModels
 {
     using GalaSoft.MvvmLight.Command;
+    using Lands.Views;
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
     using System.Windows.Input;
@@ -80,6 +81,10 @@
         {
             this.IsRemembered = true;
             IsEnabled = true;
+
+            Email = "emilio@gmail.com";
+            Password= "emilio123.";
+
             
         }
         #endregion
@@ -113,13 +118,13 @@
             IsRunning = true;
             IsEnabled = false;
 
-            if (Email != "emilio@gmail.com" || Password != "emilio123.")
+            if (Email != Email || Password != Password)
             {
 
                 IsRunning = false;
                 IsEnabled = true;
 
-                await Application.Current.MainPage.DisplayAlert("Error", "Email or Password incorreect.", "Accept");
+                await Application.Current.MainPage.DisplayAlert("Error", "Email or Password incorrect.", "Accept");
 
                 
                 Password = string.Empty;
@@ -130,7 +135,16 @@
             IsRunning = false;
             IsEnabled = true;
 
-            await Application.Current.MainPage.DisplayAlert("OK", "Fuck yeahhhh", "Accept");
+
+            //aqui instancio el patron singleton:
+            MainViewModel.GetInstance().Lands = new LandsViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
+
+            Email = string.Empty;
+            Password = string.Empty;     
+
+
+            //await Application.Current.MainPage.DisplayAlert("OK", "Fuck yeahhhh", "Accept");
             
         }
 
