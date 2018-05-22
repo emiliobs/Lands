@@ -11,19 +11,18 @@
     using System.Threading.Tasks;
 
     public class ApiService   
-    {                
+    {
         public async Task<Response> CheckConnection()
         {
 
             if (!CrossConnectivity.Current.IsConnected)      
-            {
-
+            {  
                 return new Response        
                 {
 
                     IsSuccess = false,
 
-                    Message = "Check your internet  settting.!",
+                    Message = "Please turn on your internet  settting.!",
 
                 };
 
@@ -32,28 +31,21 @@
             var response = await CrossConnectivity.Current.IsRemoteReachable("google.com");  
 
             if (!response)      
-            {
-
+            {    
                 return new Response()  
                 {
 
-                    IsSuccess = true,
-
+                    IsSuccess = true,    
                     Message = "Check your internet connection.!",
 
                 };
 
             }
 
-
-
-            return new Response()      
+            return new Response()
             {
-
                 IsSuccess = true,
-
-
-
+                Message = "OK",
             };
 
         }
