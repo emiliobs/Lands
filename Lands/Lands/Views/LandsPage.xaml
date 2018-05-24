@@ -28,7 +28,13 @@
                     <DataTemplate>
                         <ViewCell>  
                             <Frame Margin="5" CornerRadius="20" HasShadow="True">
-                                <Grid>
+
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectLandCommand}" ></TapGestureRecognizer>
+                                </Frame.GestureRecognizers>
+                                
+                                <Grid>                                     
+
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"></ColumnDefinition>
                                         <ColumnDefinition Width="Auto"></ColumnDefinition>

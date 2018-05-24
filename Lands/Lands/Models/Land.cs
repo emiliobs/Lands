@@ -77,5 +77,7 @@
 
         [JsonProperty("cioc")]
         public string Cioc { get; set; }
+
+
     }
 }
