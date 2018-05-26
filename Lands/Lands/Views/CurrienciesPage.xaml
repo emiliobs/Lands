@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lands.Views.CurrienciesPage"
               BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Curriencies">
+             Title="Curriencies"
+             Icon="ic_action_monetization_on">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Curriencies"

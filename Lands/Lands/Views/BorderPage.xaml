@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lands.Views.BorderPage"
               BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Border">
+             Title="Border"
+             Icon="ic_action_border">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Border"
