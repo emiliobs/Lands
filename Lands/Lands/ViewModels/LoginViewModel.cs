@@ -1,6 +1,7 @@
 ﻿namespace Lands.ViewModels
 {
     using GalaSoft.MvvmLight.Command;
+    using Lands.Serivices;
     using Lands.Views;
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
@@ -10,6 +11,12 @@
 
     public class LoginViewModel : BaseViewModel
     {
+        #region Services
+
+        ApiService apiService;
+
+        #endregion
+
         #region Atributtes
         string email;
         string password;
@@ -79,11 +86,13 @@
         #region Constructor
         public LoginViewModel()
         {
+            apiService = new ApiService();
+
             this.IsRemembered = true;
             IsEnabled = true;
 
-            Email = "emilio@gmail.com";
-            Password= "emilio123.";
+            Email = "barrera_emilio@hotmail.com";
+            Password= "Eabs-----55555";
 
             
         }
@@ -118,34 +127,70 @@
             IsRunning = true;
             IsEnabled = false;
 
-            if (Email != Email || Password != Password)
-            {
+            var connection = await this.apiService.CheckConnection();
 
+            if (!connection.IsSuccess)
+            {
                 IsRunning = false;
                 IsEnabled = true;
-
-                await Application.Current.MainPage.DisplayAlert("Error", "Email or Password incorrect.", "Accept");
-
-                
-                Password = string.Empty;
-               
+                await Application.Current.MainPage.DisplayAlert("Error",connection.Message,"Accept");
                 return;
             }
 
-            IsRunning = false;
-            IsEnabled = true;
+            var token = await apiService.GetToken("http://landsapi5.azurewebsites.net", Email,Password);
 
+            if (token == null)
+            {
+                IsRunning = false;
+                IsEnabled = true;
 
+                await Application.Current.MainPage.DisplayAlert("Error", "Something was Wrong.","Accept");
+
+                return;
+            }
+
+            if (string.IsNullOrEmpty(token.AccessToken))
+            {
+                IsRunning = false;
+                IsEnabled = true;
+
+                await Application.Current.MainPage.DisplayAlert("Error", token.ErrorDescription, "Accept");
+
+                Password = string.Empty;
+
+                return;
+            }
+
+            var mainViewModel = MainViewModel.GetInstance();
             //aqui instancio el patron singleton:
-            MainViewModel.GetInstance().Lands = new LandsViewModel();
+            mainViewModel.Token = token;
+            mainViewModel.Lands = new LandsViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
 
-            Email = string.Empty;
-            Password = string.Empty;     
+            IsRunning = false;
+            IsEnabled = true;
+            
+            
 
+            Email = string.Empty;
+            Password = string.Empty;
+
+            //if (Email != Email || Password != Password)
+            //{
+
+            //    IsRunning = false;
+            //    IsEnabled = true;
+
+            //    await Application.Current.MainPage.DisplayAlert("Error", "Email or Password incorrect.", "Accept");
+
+
+            // Password = string.Empty;
+
+            //    return;
+            //}        
 
             //await Application.Current.MainPage.DisplayAlert("OK", "Fuck yeahhhh", "Accept");
-            
+
         }
 
         #endregion

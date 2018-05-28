@@ -62,6 +62,7 @@
                 var response = await client.PostAsync("Token",
                     new StringContent($"grant_type=password&username={username}&password={password}",
                         Encoding.UTF8, "application/x-www-form-urlencoded"));
+
                 //var response = await client.PostAsync("Token",
 
                 //    new StringContent(string.Format("grant_type=password&username={0}&password={1}", username, password),

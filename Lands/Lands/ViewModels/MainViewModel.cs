@@ -19,6 +19,8 @@ namespace Lands.ViewModels
 
         public List<Land> LandList { get; set; }
 
+        public TokenResponse Token { get; set; }
+
         #endregion
 
         #region Constructor
