@@ -1,14 +1,13 @@
 ﻿namespace Lands.ViewModels
 {
     using GalaSoft.MvvmLight.Command;
+    using Lands.Helpers;
     using Lands.Serivices;
     using Lands.Views;
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
     using System.Windows.Input;
-    using Xamarin.Forms;
-
-
+    using Xamarin.Forms;   
     public class LoginViewModel : BaseViewModel
     {
         #region Services
@@ -114,13 +113,16 @@
         {
             if (string.IsNullOrEmpty(this.Email))
             {
-                await Application.Current.MainPage.DisplayAlert("Error","You must enter an Email..","Accept");
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.Error,
+                    Languages.EmailValidation,
+                    Languages.Accept);
                 return;
             }
 
             if (string.IsNullOrEmpty(Password))
             {
-                await Application.Current.MainPage.DisplayAlert("Error","You must enter a Password.","Accept");
+                await Application.Current.MainPage.DisplayAlert(Languages.Error,"You must enter a Password.",Languages.Accept);
                 return;
             }
 
@@ -133,7 +135,7 @@
             {
                 IsRunning = false;
                 IsEnabled = true;
-                await Application.Current.MainPage.DisplayAlert("Error",connection.Message,"Accept");
+                await Application.Current.MainPage.DisplayAlert(Languages.Error,connection.Message,Languages.Accept);
                 return;
             }
 
@@ -144,7 +146,7 @@
                 IsRunning = false;
                 IsEnabled = true;
 
-                await Application.Current.MainPage.DisplayAlert("Error", "Something was Wrong.","Accept");
+                await Application.Current.MainPage.DisplayAlert(Languages.Error, "Something was Wrong.", Languages.Accept);
 
                 return;
             }
@@ -154,7 +156,7 @@
                 IsRunning = false;
                 IsEnabled = true;
 
-                await Application.Current.MainPage.DisplayAlert("Error", token.ErrorDescription, "Accept");
+                await Application.Current.MainPage.DisplayAlert(Languages.Error, token.ErrorDescription, Languages.Accept);
 
                 Password = string.Empty;
 
