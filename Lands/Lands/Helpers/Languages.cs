@@ -34,6 +34,11 @@ namespace Lands.Helpers
 
         }
 
+        public static String Email { get => Resource.Email; }
+
+        public static string Password { get => Resource.Password; }
+
+
         //public static string PasswordVaidator
         //{
         //    get => Resource.PasswordValidator;
@@ -48,23 +53,23 @@ namespace Lands.Helpers
 
         //}
 
-        //public static string Rememberme
-        //{
-        //    get => Resources.Rememberme;
+        public static string Rememberme
+        {
+            get => Resource.Rememberme;
 
-        //}
+        }
 
-        //public static string EmailPlaceHolder
-        //{
-        //    get => Resource.EmailPlaceHolder;
+        public static string EmailPlaceHolder
+        {
+            get => Resource.EmailPlaceHolder;
 
-        //}
+        }
 
-        //public static string PasswordPlaceHolder
-        //{
-        //    get => Resource.PasswordPlaceHolder;
+        public static string PasswordPlaceHolder
+        {
+            get => Resource.PasswordPlaceHolder;
 
-        //}
+        }
 
         //public static string Menu
         //{

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:Lands.Helpers"
              x:Class="Lands.Views.LoginPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Lands - Login.">
@@ -26,7 +27,7 @@
                     <Label  
                     Grid.Row="0"
                     Grid.Column="0"
-                    Text="E-Mail"
+                    Text="{i18n:Translate Email}"
                     VerticalOptions="Center">
                     </Label>
                     <Entry
@@ -34,13 +35,13 @@
                     Grid.Column="1"
                 Keyboard="Email"
                         Text="{Binding Email, Mode=TwoWay}"
-                Placeholder="Enter your E-Mail.....">
+                Placeholder="{i18n:Translate EmailPlaceHolder}">
                     </Entry>
 
                     <Label 
                     Grid.Row="1"
                     Grid.Column="0"
-                     Text="Password"
+                     Text="{i18n:Translate Password}"
                     VerticalOptions="Center">
                     </Label>
                     <Entry
@@ -50,7 +51,7 @@
                 IsEnabled="True"
                         IsPassword="True"
                         Text="{Binding Password, Mode=TwoWay}"
-                Placeholder="Enter your Password.....">
+                Placeholder="{i18n:Translate PasswordPlaceHolder}">
                     </Entry> 
                 </Grid>
                 <ActivityIndicator 
@@ -58,7 +59,7 @@
                     IsRunning="{Binding IsRunning, Mode=TwoWay}">
                 </ActivityIndicator>
                 <StackLayout VerticalOptions="CenterAndExpand" Orientation="Horizontal">
-                    <Label Text="Rememberme on this Device."
+                    <Label Text="{i18n:Translate Rememberme}"
                        VerticalOptions="Center"
                        HorizontalOptions="StartAndExpand"></Label>
                     <Switch HorizontalOptions="End" IsToggled="{Binding IsRemembered, Mode=TwoWay}"></Switch>

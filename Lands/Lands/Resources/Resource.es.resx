@@ -120,10 +120,25 @@
   <data name="Accept" xml:space="preserve">
     <value>Aceptar</value>
   </data>
+  <data name="Email" xml:space="preserve">
+    <value>Correo</value>
+  </data>
+  <data name="EmailPlaceHolder" xml:space="preserve">
+    <value>Ingrese su Correo.</value>
+  </data>
   <data name="EmailValidation" xml:space="preserve">
     <value>Debes Ingresar un  Email.</value>
   </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="PasswordPlaceHolder" xml:space="preserve">
+    <value>Ingrese su Password.</value>
+  </data>
+  <data name="Rememberme" xml:space="preserve">
+    <value>Recordarme en este Dispositivo.</value>
   </data>
 </root>
