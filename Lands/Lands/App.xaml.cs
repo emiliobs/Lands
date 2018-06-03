@@ -1,8 +1,9 @@
-using Xamarin.Forms.Xaml;
-
+using Xamarin.Forms.Xaml;       
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Lands
 {
+    using Lands.Helpers;
+    using Lands.ViewModels;
     using Lands.Views;
     using Xamarin.Forms;
     public partial class App : Application
@@ -16,8 +17,18 @@ namespace Lands
         {
             InitializeComponent();
 
-           
-            MainPage = new NavigationPage(new LoginPage());
+            if (string.IsNullOrEmpty(Settings.TokenId))
+            {
+                    MainPage = new NavigationPage(new LoginPage());
+
+            }
+            else
+            {
+                var mainViewModel = MainViewModel.GetInstance();
+                mainViewModel.TokenId = Settings.TokenId;
+                mainViewModel.TokenTypeId = Settings.TokenTypeId;
+                MainPage = new MasterPage();
+            }
         }
         #endregion
 

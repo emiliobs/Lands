@@ -482,5 +482,14 @@ namespace Lands.Resources {
                 return ResourceManager.GetString("Translations", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must enter a Password..
+        /// </summary>
+        public static string YouEnterPassword {
+            get {
+                return ResourceManager.GetString("YouEnterPassword", resourceCulture);
+            }
+        }
     }
 }

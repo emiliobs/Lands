@@ -16,7 +16,7 @@ namespace Lands.Helpers
             DependencyService.Get<ILocalize>().SetLocale(ci);
         }
 
-
+        public static string YouEnterPassword { get=>Resource.YouEnterPassword; }
         public static string MyProfile { get => Resource.MyProfile; }
         public static string Statistics { get => Resource.Statistics; }
         public static string LogOut { get => Resource.LogOut; }

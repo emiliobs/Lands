@@ -258,4 +258,7 @@
   <data name="MyProfile" xml:space="preserve">
     <value>My Profile</value>
   </data>
+  <data name="YouEnterPassword" xml:space="preserve">
+    <value>You must enter a Password.</value>
+  </data>
 </root>

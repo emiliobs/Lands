@@ -1,6 +1,7 @@
 ﻿namespace Lands.ViewModels
 {
     using GalaSoft.MvvmLight.Command;
+    using Lands.Helpers;
     using Lands.Views;
     using System;
     using System.Windows.Input;
@@ -23,6 +24,14 @@
         {
             if (PageName == "LoginPage")
             {
+                Settings.TokenId = string.Empty;
+                Settings.TokenTypeId = string.Empty;
+
+                var mainViewModel = MainViewModel.GetInstance();
+
+                mainViewModel.TokenId = string.Empty;
+                mainViewModel.TokenTypeId = string.Empty;
+
                 Application.Current.MainPage = new LoginPage();
             }
         } 

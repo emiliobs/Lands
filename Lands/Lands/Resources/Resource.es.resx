@@ -258,4 +258,7 @@
   <data name="Statistics" xml:space="preserve">
     <value>Estadística</value>
   </data>
+  <data name="YouEnterPassword" xml:space="preserve">
+    <value>Debes Ingresar Una contraseña.</value>
+  </data>
 </root>

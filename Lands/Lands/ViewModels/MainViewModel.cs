@@ -19,6 +19,9 @@ namespace Lands.ViewModels
 
         #region Properties
 
+        public string TokenId { get; set; }
+        public string TokenTypeId { get; set; }
+
         public ObservableCollection <MenuItemViewModel> Menus { get; set; }
 
         public List<Land> LandList { get; set; }

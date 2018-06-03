@@ -122,7 +122,7 @@
 
             if (string.IsNullOrEmpty(Password))
             {
-                await Application.Current.MainPage.DisplayAlert(Languages.Error,"You must enter a Password.",Languages.Accept);
+                await Application.Current.MainPage.DisplayAlert(Languages.Error,Languages.YouEnterPassword,Languages.Accept);
                 return;
             }
 
@@ -146,7 +146,7 @@
                 IsRunning = false;
                 IsEnabled = true;
 
-                await Application.Current.MainPage.DisplayAlert(Languages.Error, "Something was Wrong.", Languages.Accept);
+                await Application.Current.MainPage.DisplayAlert(Languages.Error, Languages.SomethingWrong, Languages.Accept);
 
                 return;
             }
@@ -163,9 +163,20 @@
                 return;
             }
 
-            var mainViewModel = MainViewModel.GetInstance();
             //aqui instancio el patron singleton:
-            mainViewModel.Token = token;
+            var mainViewModel = MainViewModel.GetInstance();
+             ///aqui guardo el token en memoria
+            mainViewModel.TokenId = token.AccessToken;
+            mainViewModel.TokenTypeId = token.TokenType;
+
+            if (IsRemembered)   
+            {   
+                //aqui guardo el token en persistencia
+                Settings.TokenId = token.AccessToken;
+                Settings.TokenTypeId = token.TokenType;
+
+            }  
+
             mainViewModel.Lands = new LandsViewModel();
             //await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
             Application.Current.MainPage = new MasterPage();
