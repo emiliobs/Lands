@@ -90,8 +90,8 @@
             this.IsRemembered = true;
             IsEnabled = true;
 
-            Email = "barrera_emilio@hotmail.com";
-            Password= "Eabs-----55555";
+            //Email = "barrera_emilio@hotmail.com";
+            //Password= "Eabs-----55555";
 
             
         }

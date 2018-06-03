@@ -27,7 +27,7 @@
                     <Label  
                     Grid.Row="0"
                     Grid.Column="0"
-                    Text="{i18n:Translate EmailValidation}"
+                    Text="{i18n:Translate EMail}"
                     VerticalOptions="Center">
                     </Label>
                     <Entry
@@ -41,7 +41,7 @@
                     <Label 
                     Grid.Row="1"
                     Grid.Column="0"
-                     Text="{i18n:Translate PasswordValidation}"
+                     Text="{i18n:Translate Password}"
                     VerticalOptions="Center">
                     </Label>
                     <Entry
