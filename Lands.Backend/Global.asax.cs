@@ -1,6 +1,7 @@
 ﻿namespace Lands.Backend
 {
     using Lands.Backend.Helpers;
+    using System.Data.Entity;
     using System.Web.Mvc;
     using System.Web.Optimization;
     using System.Web.Routing;
@@ -9,6 +10,9 @@
     {
         protected void Application_Start()
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<Models.LocalDatacontext,
+                                    Migrations.Configuration>());
+
             //veriffica que este este els super usua de la pallication:
             this.CheckRolesAndSuperUser();
 
