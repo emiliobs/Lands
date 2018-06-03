@@ -7,7 +7,11 @@ namespace Lands
     using Xamarin.Forms;
     public partial class App : Application
 	{
-        #region Contructor
+        #region Properties
+        public static NavigationPage Navigator { get; internal set; } 
+        #endregion
+
+        #region Contructors
         public App()
         {
             InitializeComponent();
