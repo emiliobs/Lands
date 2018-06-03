@@ -17,6 +17,9 @@ namespace Lands.Helpers
         }
 
 
+        public static string MyProfile { get => Resource.MyProfile; }
+        public static string Statistics { get => Resource.Statistics; }
+        public static string LogOut { get => Resource.LogOut; }
 
         public static string Menu
         {
