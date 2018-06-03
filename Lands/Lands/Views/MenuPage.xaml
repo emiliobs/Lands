@@ -4,12 +4,14 @@
              xmlns:i18n="clr-namespace:Lands.Helpers"
              x:Class="Lands.Views.MenuPage"
               BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             BackgroundColor="Navy"
              Title="{i18n:Translate Menu}">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Menu"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand" 
+                   TextColor="White"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
