@@ -1,5 +1,6 @@
 ﻿namespace Lands.Domains
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -16,6 +17,10 @@
         [MaxLength(50, ErrorMessage = "The field {0} only can contain a maximum of {1} characteres lenght")]
         [Index("UserType_Name_Index", IsUnique = true)]
        public string Name { get; set; }
+
+        //Relations
+        [JsonIgnore]
+        public virtual ICollection<User>  Users{ get; set; }
     }
 
 }

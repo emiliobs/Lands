@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -35,6 +36,12 @@ namespace Lands.Domains
 
         [Display(Name = "Image")]
         public string ImagePath { get; set; }
+
+        //Relations
+        public int UserTypeId { get; set; }
+
+        [JsonIgnore]
+        public virtual UserType UserType { get; set; }
 
         [Display(Name = "Image")]
         public string ImageFullPath => string.IsNullOrEmpty(this.ImagePath) ? "NoImage" : $"http://landsapi5.azurewebsites.net/{ImagePath.Substring(1)}";
