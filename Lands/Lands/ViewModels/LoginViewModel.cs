@@ -4,10 +4,11 @@
     using Lands.Helpers;
     using Lands.Serivices;
     using Lands.Views;
+    using System;
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
     using System.Windows.Input;
-    using Xamarin.Forms;   
+    using Xamarin.Forms;
     public class LoginViewModel : BaseViewModel
     {
         #region Services
@@ -103,7 +104,15 @@
             get => new RelayCommand(Login);
         }
 
-       
+        public ICommand RegisterCommand { get => new RelayCommand(Register); }
+
+        private async void Register()
+        {
+            MainViewModel.GetInstance().Register = new RegisterViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
+        }
+
+
 
         #endregion
 

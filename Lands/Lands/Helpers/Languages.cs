@@ -20,6 +20,27 @@ namespace Lands.Helpers
         public static string MyProfile { get => Resource.MyProfile; }
         public static string Statistics { get => Resource.Statistics; }
         public static string LogOut { get => Resource.LogOut; }
+        public static string RegisterTitle { get => Resource.RegisterTitle; }
+        public static string ChangeImage { get => Resource.ChangeImage; }
+        public static string FirstNameLabel { get => Resource.FirstNameLabel; }
+        public static string FirstNamePlaceHolder { get => Resource.FirstNamePlaceHolder; }
+        public static string FirstNameValidation { get => Resource.FirstNameValidation; }
+        public static string LastNameLabel { get => Resource.LastNameLabel; }
+        public static string LastNamePlaceHolder { get => Resource.LastNamePlaceHolder; }
+        public static string LastNameValidation { get => Resource.LastNameValidation; }
+        public static string PhoneLabel { get => Resource.PhoneLabel; }
+        public static string PhonePlaceHolder  { get => Resource.PhonePlaceHolder; }
+        public static string PhoneValidation { get => Resource.PhoneValidation; }
+        public static string ConfirmLabel { get => Resource.ConfirmLabel; }
+        public static string ConfirmPlaceHolder { get => Resource.ConfirmPlaceHolder; }
+        public static string ConfirmValidation { get => Resource.ConfirmValidation; }
+        public static string ConfirmValidation2 { get => Resource.ConfirmValidation2; }
+        public static string PasswordValidation2 { get => Resource.PasswordValidation2; }
+        public static string UserRegisterMessage { get => Resource.UserRegisterMessage; }
+        public static string SourceImageQuestion { get => Resource.SourceImageQuestion; }
+        public static string Cancel { get => Resource.Cancel; }
+        public static string FromGallery { get => Resource.FromGallery; }
+        public static string FromCamera { get => Resource.FromCamera; }
 
         public static string Menu
         {
