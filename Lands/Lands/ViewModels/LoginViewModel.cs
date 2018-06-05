@@ -131,7 +131,8 @@
 
             if (string.IsNullOrEmpty(Password))
             {
-                await Application.Current.MainPage.DisplayAlert(Languages.Error,Languages.YouEnterPassword,Languages.Accept);
+                await Application.Current.MainPage.DisplayAlert(Languages.Error,
+                                                                Languages.YouEnterPassword,Languages.Accept);
                 return;
             }
 
@@ -148,7 +149,10 @@
                 return;
             }
 
-            var token = await apiService.GetToken("http://landsapi5.azurewebsites.net", Email,Password);
+            //aqui tengo la url no quemada esta en app.xaml
+            var apiSecurity = Application.Current.Resources["APISecurity"].ToString();
+
+            var token = await apiService.GetToken(apiSecurity, Email,Password);
 
             if (token == null)
             {

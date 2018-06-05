@@ -41,6 +41,7 @@ namespace Lands.Helpers
         public static string Cancel { get => Resource.Cancel; }
         public static string FromGallery { get => Resource.FromGallery; }
         public static string FromCamera { get => Resource.FromCamera; }
+        public static string EmailValidation2 { get => Resource.EmailValidation2; }
 
         public static string Menu
         {

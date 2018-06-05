@@ -190,4 +190,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\menu.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\No_image.png" />
+  </ItemGroup>
 </Project>

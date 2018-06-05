@@ -123,7 +123,8 @@
                 return;
             }
 
-            var response = await apiService.GetList<Land>("http://restcountries.eu", "/rest", "/v2/all");
+            var apiSecurity = Application.Current.Resources["APILands"].ToString();  
+            var response = await apiService.GetList<Land>(apiSecurity, "/rest", "/v2/all");
 
             if (!response.IsSuccess)
             {

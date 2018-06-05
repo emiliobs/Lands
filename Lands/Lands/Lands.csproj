@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.2.0" />
     <PackageReference Include="MvvmLightLibs" Version="5.4.1" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.1.1" />
@@ -17,10 +18,6 @@
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.3.6" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.3.6" />
     <PackageReference Include="Xamarin.Forms" Version="3.0.0.482510" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\Lands.Domains\Lands.Domains.csproj" />
   </ItemGroup>
 
   <ItemGroup>
