@@ -1,19 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Web.Http;
-using System.Web.Http.Description;
-using Lands.Api.Models;
-using Lands.Domains;
-
-namespace Lands.Api.Controllers
+﻿namespace Lands.Api.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
+    using System.IO;
+    using System.Linq;
+    using System.Net;
+    using System.Net.Http;
+    using System.Threading.Tasks;
+    using System.Web.Http;
+    using System.Web.Http.Description;
+    using Lands.Api.Models;
+    using Lands.Api.UserHelper;
+    using Lands.Domains;
+
+
     public class UsersController : ApiController
     {
         private LocalApiDatacontext db = new LocalApiDatacontext();
@@ -74,17 +77,58 @@ namespace Lands.Api.Controllers
 
         // POST: api/Users
         [ResponseType(typeof(User))]
-        public async Task<IHttpActionResult> PostUser(User user)
+        public async Task<IHttpActionResult> PostUser(UserView view)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Users.Add(user);
-            await db.SaveChangesAsync();
+            //aqui oregunto si el usuario tiene foto:
+            if (view.ImageArray != null && view.ImageArray.Length > 0)
+            {
+                var stream = new MemoryStream(view.ImageArray);
+                var guid = Guid.NewGuid().ToString();
+                var file = $"{guid}.jpg";
+                var folder = "~/Content/Images";
+                var fullPath = $"{folder}/{file}";
+                var response = FilesHelper.UploadPhoto(stream, folder, file);
 
-            return CreatedAtRoute("DefaultApi", new { id = user.UserId }, user);
+                if (response)
+                {
+                    view.ImagePath = fullPath;
+                }
+
+                var user = ToUser(view);
+
+                db.Users.Add(user);
+            await db.SaveChangesAsync();
+            UsersHelper.CreateUserASP(view.Email, "User", view.Password);
+
+           
+            }
+
+            return CreatedAtRoute("DefaultApi", new { id = view.UserId }, view);
+        }
+
+        //tranformación de ojbjetos de userView A User:
+        private User ToUser(UserView view)
+        {
+            return new User() {
+
+                Email = view.Email,
+                FirstName = view.FirstName,
+                ImageArray = view.ImageArray,
+                ImagePath = view.ImagePath,
+                LastName = view.LastName,
+                Password = view.Password,
+                Telephone = view.Telephone,
+                UserId = view.UserId,
+                UserType = view.UserType,
+                UserTypeId = view.UserTypeId,
+
+
+            };
         }
 
         // DELETE: api/Users/5

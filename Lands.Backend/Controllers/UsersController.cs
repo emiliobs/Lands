@@ -66,19 +66,19 @@
         //    return View(view);
         //}
 
-        private User ThisToUser(UserView view)
-        {
+        //private User ThisToUser(UserView view)
+        //{
 
-            return new User()
-            {
-              Email = view.Email,
-              FirstName = view.FirstName,
-              ImagePath = view.ImagePath,
-              LastName = view.LastName,
-              Telephone = view.Telephone,
-              UserId = view.UserId,
-            };
-        }
+        //    return new User()
+        //    {
+        //      Email = view.Email,
+        //      FirstName = view.FirstName,
+        //      ImagePath = view.ImagePath,
+        //      LastName = view.LastName,
+        //      Telephone = view.Telephone,
+        //      UserId = view.UserId,
+        //    };
+        //}
 
         // GET: Users/Edit/5
         //public async Task<ActionResult> Edit(int? id)
